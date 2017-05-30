@@ -1,35 +1,19 @@
-import { LABELS, HTTP } from "constants/constants";
+import { HTTP } from "constants/constants";
 
 // actions
-const TOGGLE = "features/something/TOGGLE";
-const THING = "features/something/THING";
-const THING_LOAD_REQUEST = "features/something/THING_LOAD_REQUEST";
-const THING_LOADED = "features/something/THING_LOADED";
-const THING_ERROR = "features/something/THING_ERROR";
+const THING_LOAD_REQUEST = "features/menu/THING_LOAD_REQUEST";
+const THING_LOADED = "features/menu/THING_LOADED";
+const THING_ERROR = "features/menu/THING_ERROR";
 
 // initial state
 const initialState = {
-  message: LABELS.START_TEXT,
-  active: false,
-  count: 0,
   isFetching: false,
-  lastTrack: undefined,
+  stories: [],
 };
 
 // Reducer
 export default function reducer( state = initialState, action = {} ) {
   switch ( action.type ) {
-    case TOGGLE:
-      return {
-        ...state,
-        active: !state.active,
-        count: state.count + 1,
-      };
-    case THING:
-      return {
-        ...state,
-        message: action.words,
-      };
     case THING_LOAD_REQUEST:
       return {
         ...state,
@@ -39,7 +23,7 @@ export default function reducer( state = initialState, action = {} ) {
       return {
         ...state,
         isFetching: action.isFetching,
-        lastTrack: action.lastTrack,
+        stories: action.stories,
       };
     case THING_ERROR:
       return {
@@ -50,19 +34,8 @@ export default function reducer( state = initialState, action = {} ) {
   }
 }
 
-// syncronous (instant) action creators
-export function toggle() {
-  return { type: TOGGLE };
-}
-
-export function doThing( words ) {
-  return { type: THING, words };
-}
-
-// ------ http request related actions ------ //
-
 // initialize loading state
-function startThingLoad() {
+function startStoriesLoad() {
   return {
     type: THING_LOAD_REQUEST,
     isFetching: true,
@@ -70,16 +43,16 @@ function startThingLoad() {
 }
 
 // load completed
-function thingOneLoaded( json ) {
+function storiesLoaded( json ) {
   return {
     type: THING_LOADED,
     isFetching: false,
-    lastTrack: json.recenttracks.track[ 0 ].name,
+    stories: json.items,
   };
 }
 
 // loading error
-function thingOneLoadError( error ) {
+function storiesError( error ) {
   return {
     type: THING_ERROR,
     isFetching: false,
@@ -91,17 +64,17 @@ function thingOneLoadError( error ) {
 export function loadLastTrack() {
   return ( dispatch ) => {
     // dispatch to start a spinner or to disable mouse actions
-    dispatch( startThingLoad() );
+    dispatch( startStoriesLoad() );
     // load the data
-    return fetch( HTTP.LAST_API )
+    return fetch( HTTP.STORY_API )
       .then( response => response.json() )
       .then( json =>
         // dispatched loaded data
-        dispatch( thingOneLoaded( json ) ),
+        dispatch( storiesLoaded( json ) ),
       )
       .catch( error =>
         // dispatched an http error occurred
-        dispatch( thingOneLoadError( error ) ),
+        dispatch( storiesError( error ) ),
       );
   };
 }

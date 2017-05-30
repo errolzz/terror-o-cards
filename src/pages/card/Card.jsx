@@ -1,21 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ConnectedMore from "features/more/ConnectedMore";
+import Story from "features/story/Story";
 
-const Cardclass = ( { match } ) => (
+const Card = ( { match } ) => (
   <div className="page">
     <h1>Hello {match.params.id}</h1>
-    <ConnectedMore />
+    <Story />
   </div>
 );
 
-Cardclass.propTypes = {
+Card.propTypes = {
   // this provides route info, will cause lint error
   match: PropTypes.object,
 };
 
-Cardclass.defaultProps = {
+Card.defaultProps = {
   match: {},
 };
 
-export default Cardclass;
+export default Card;

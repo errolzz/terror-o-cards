@@ -1,8 +1,11 @@
-export const LABELS = {
-  START_TEXT: "Click me! ",
-  END_TEXT: "The count is now: ",
+export const TAGS = {
+  WANDS: "wands",
+  COINS: "coins",
+  SWORDS: "wands",
+  CUPS: "cups",
+  MAJOR: "major",
 };
 
 export const HTTP = {
-  LAST_API: "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=amplifiedpdx&api_key=43cfd9f3b17f5a216e6601321ae7d0f5&limit=5&format=json",
+  STORY_API: "https://cdn.contentful.com/spaces/8f8mff1yz030/entries?access_token=8058cdca1bd98742cc39bf3f093edba640cff156f5db75ef963a5024b8ff624a&limit=200",
 };
