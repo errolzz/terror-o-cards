@@ -34,16 +34,13 @@ const middleware = [
 // the store
 const store = createStore( reducers, applyMiddleware( ...middleware ) );
 
-const icon = require( "assets/images/amp.png" );
-
 // the app
 render(
   <Provider store={ store }>
     <ConnectedRouter history={ history }>
       <div>
-        <Link to="/"><img src={ icon } width="40" alt="" /></Link>
         <Route exact path="/" component={ Home } />
-        <Route path="/card/:title" component={ Card } />
+        <Route path="/card/:slug" component={ Card } />
       </div>
     </ConnectedRouter>
   </Provider>,

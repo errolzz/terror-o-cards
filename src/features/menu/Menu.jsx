@@ -21,12 +21,6 @@ class Menu extends React.Component {
     this.props.loadStories();
   }
 
-  getCardLists() {
-    return this.props.stories.map( story => (
-      <Link to={ "card/"`${ story.slug }` }>{ story.title }</Link>
-    ) );
-  }
-
   /*
   filterCards( suit ) {
     return this.props.stories.filter( ( story ) => {
@@ -39,7 +33,11 @@ class Menu extends React.Component {
   render() {
     return (
       <div className="menu">
-        {this.getCardLists()}
+        {
+          this.props.stories.map( story => (
+            <Link key={ story.fields.slug } to={ `card/${ story.fields.slug }` }>{ story.fields.title }</Link>
+          ) )
+        }
       </div>
     );
   }

@@ -1,11 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Story from "features/story/Story";
+import ConnectedStory from "features/story/ConnectedStory";
 
 const Card = ( { match } ) => (
   <div className="page">
-    <h1>Hello {match.params.id}</h1>
-    <Story />
+    <ConnectedStory slug={ match.params.slug } />
   </div>
 );
 

@@ -2,7 +2,4 @@
 
 html, body {
   margin: 0;
-  background: var(--my-black);
-  color: var(--my-white);
-  font-family: sans-serif;
 }
