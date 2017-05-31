@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import "./Story.css";
 
 const Story = ( { story } ) => {
@@ -11,14 +12,10 @@ const Story = ( { story } ) => {
       <div>
         <h1>{ story.title }</h1>
         <p>{ story.body }</p>
-        <ul>
-          {
-            story.tags.map( tag => (
-              <li key={ tag }>{ tag }</li>
-            ) )
-          }
-        </ul>
-        <p>{ date }</p>
+        <footer>
+          <div className="back"><Link to="/">Index</Link></div>
+          <div className="date">{ date }</div>
+        </footer>
       </div>
     </div>
   );

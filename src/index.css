@@ -1,5 +1,19 @@
+@import 'reset-css/reset.css';
 @import './constants/constants.css';
 
 html, body {
   margin: 0;
+  font-family: 'EB Garamond', serif;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+h1 {
+  font-size: 30px;
+  margin: 60px;
+  text-align: center;
+}
+
+p {
+  text-indent: 30px;
 }

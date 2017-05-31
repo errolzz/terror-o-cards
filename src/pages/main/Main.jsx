@@ -23,7 +23,6 @@ class Main extends React.Component {
     }
     return (
       <div className="page">
-        <h1>terror-o-cards</h1>
         { view }
       </div>
     );
