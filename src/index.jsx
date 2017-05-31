@@ -13,8 +13,7 @@ import { ConnectedRouter, routerMiddleware } from "react-router-redux";
 import reducers from "dux/reducers";
 
 // pages
-import Home from "pages/home/Home";
-import Card from "pages/card/Card";
+import ConnectedMain from "pages/main/ConnectedMain";
 
 // css
 import "index.css";
@@ -39,8 +38,8 @@ render(
   <Provider store={ store }>
     <ConnectedRouter history={ history }>
       <div>
-        <Route exact path="/" component={ Home } />
-        <Route path="/card/:slug" component={ Card } />
+        <Route exact path="/" component={ ConnectedMain } />
+        <Route exact path="/:slug" component={ ConnectedMain } />
       </div>
     </ConnectedRouter>
   </Provider>,

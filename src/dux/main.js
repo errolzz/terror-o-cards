@@ -1,9 +1,9 @@
 import { HTTP } from "constants/constants";
 
 // actions
-const THING_LOAD_REQUEST = "features/menu/THING_LOAD_REQUEST";
-const THING_LOADED = "features/menu/THING_LOADED";
-const THING_ERROR = "features/menu/THING_ERROR";
+const STORIES_LOAD_REQUEST = "features/main/STORIES_LOAD_REQUEST";
+const STORIES_LOADED = "features/main/STORIES_LOADED";
+const STORIES_ERROR = "features/main/STORIES_ERROR";
 
 // initial state
 const initialState = {
@@ -14,18 +14,18 @@ const initialState = {
 // Reducer
 export default function reducer( state = initialState, action = {} ) {
   switch ( action.type ) {
-    case THING_LOAD_REQUEST:
+    case STORIES_LOAD_REQUEST:
       return {
         ...state,
         isFetching: action.isFetching,
       };
-    case THING_LOADED:
+    case STORIES_LOADED:
       return {
         ...state,
         isFetching: action.isFetching,
         stories: action.stories,
       };
-    case THING_ERROR:
+    case STORIES_ERROR:
       return {
         ...state,
         isFetching: action.isFetching,
@@ -37,7 +37,7 @@ export default function reducer( state = initialState, action = {} ) {
 // initialize loading state
 function startStoriesLoad() {
   return {
-    type: THING_LOAD_REQUEST,
+    type: STORIES_LOAD_REQUEST,
     isFetching: true,
   };
 }
@@ -45,7 +45,7 @@ function startStoriesLoad() {
 // load completed
 function storiesLoaded( json ) {
   return {
-    type: THING_LOADED,
+    type: STORIES_LOADED,
     isFetching: false,
     stories: json.items,
   };
@@ -54,7 +54,7 @@ function storiesLoaded( json ) {
 // loading error
 function storiesError( error ) {
   return {
-    type: THING_ERROR,
+    type: STORIES_ERROR,
     isFetching: false,
     error,
   };
@@ -62,6 +62,7 @@ function storiesError( error ) {
 
 // asyncronous action creator
 export function loadAllStories() {
+  console.log('loading stories')
   return ( dispatch ) => {
     // dispatch to start a spinner or to disable mouse actions
     dispatch( startStoriesLoad() );

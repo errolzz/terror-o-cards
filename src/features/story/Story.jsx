@@ -1,27 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./Story.css";
 
-const Story = ( { stories, slug } ) => {
-  console.log(stories)
-  const content = stories.find( story => (
-    story.slug === slug
-  ) );
-
-  return (
-    <div className="story">
-      {content &&
-        <div>
-          <h1>{ content[0].fields.title }</h1>
-          <p>{ content[0].fields.body }</p>
-        </div>
-      }
+const Story = ( { story } ) => (
+  <div className="story">
+    <div>
+      <h1>{ story.title }</h1>
+      <p>{ story.body }</p>
     </div>
-  );
-};
+  </div>
+);
 
 Story.propTypes = {
-  slug: PropTypes.string.isRequired,
-  stories: PropTypes.array.isRequired,
+  story: PropTypes.shape( {
+    title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    tags: PropTypes.array.isRequired,
+  } ).isRequired,
 };
 
 export default Story;

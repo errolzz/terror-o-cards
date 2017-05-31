@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
-import { loadAllStories } from "dux/menu";
-import Menu from "./Menu";
+import { loadAllStories } from "dux/main";
+import Main from "./Main";
 
 // maps the redux state to this components props
 const mapStateToProps = state => ( {
-  isFetching: state.menu.isFetching,
-  stories: state.menu.stories,
+  isFetching: state.main.isFetching,
+  stories: state.main.stories,
 } );
 
 // provide the component with the dispatch method
@@ -15,4 +15,4 @@ const mapDispatchToProps = dispatch => ( {
   },
 } );
 
-export default connect( mapStateToProps, mapDispatchToProps )( Menu );
+export default connect( mapStateToProps, mapDispatchToProps )( Main );
