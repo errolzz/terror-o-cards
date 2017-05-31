@@ -62,7 +62,6 @@ function storiesError( error ) {
 
 // asyncronous action creator
 export function loadAllStories() {
-  console.log('loading stories')
   return ( dispatch ) => {
     // dispatch to start a spinner or to disable mouse actions
     dispatch( startStoriesLoad() );
