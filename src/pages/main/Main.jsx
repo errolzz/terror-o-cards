@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Menu from "features/menu/Menu";
 import Story from "features/story/Story";
-import "./Main.css";
 
 class Main extends React.Component {
   componentDidMount() {
