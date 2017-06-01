@@ -6,6 +6,7 @@ var clean = require( "clean-webpack-plugin" );
 var cssimport = require( "postcss-import" );
 var cssnext = require( "postcss-cssnext" );
 var extractor = require( "extract-text-webpack-plugin" );
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // dist config
 module.exports = {
@@ -27,5 +28,9 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin( {
       compressor: { warnings: true },
     } ),
+    new CopyWebpackPlugin( [
+      { from: "src/.htaccess" },
+      { from: "src/favicon.ico" },
+    ] ),
   ],
 };

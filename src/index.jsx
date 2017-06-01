@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import ReduxThunk from "redux-thunk";
 import createHistory from "history/createBrowserHistory";
-import { Link, Route } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 import { ConnectedRouter, routerMiddleware } from "react-router-redux";
 
 // reducers
@@ -37,10 +37,10 @@ const store = createStore( reducers, applyMiddleware( ...middleware ) );
 render(
   <Provider store={ store }>
     <ConnectedRouter history={ history }>
-      <div>
-        <Route exact path="/" component={ ConnectedMain } />
+      <Switch>
         <Route exact path="/:slug" component={ ConnectedMain } />
-      </div>
+        <Route component={ ConnectedMain } />
+      </Switch>
     </ConnectedRouter>
   </Provider>,
   document.getElementById( "app" ),
