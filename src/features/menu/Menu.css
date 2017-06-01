@@ -10,11 +10,17 @@
 
   & .list-header {
     position: relative;
-    display: flex;
-    width: 94%;
+    width: calc(100% - 30px);
     max-width: 600px;
     margin: 0 auto 10px;
-    justify-content: space-between;
+    overflow: auto;
+
+    & .up {
+      float: left;
+    }
+    & .down {
+      float: right;
+    }
 
     & h2 {
       font-size: 30px;
@@ -31,7 +37,7 @@
 
   & .list-holder {
     display: flex;
-    width: 94%;
+    width: calc(100% - 30px);
     max-width: 600px;
     margin: 0 auto 60px;
     justify-content: space-between;

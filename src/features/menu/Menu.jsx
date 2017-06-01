@@ -62,9 +62,9 @@ function makeCardList( cards, label ) {
     return (
       <div>
         <div className="list-header">
-          <div><h3>{ LABELS.UP }</h3></div>
+          <div className="up"><h3>{ LABELS.UP }</h3></div>
           <h2>{ label }</h2>
-          <div><h3>{ LABELS.DOWN }</h3></div>
+          <div className="down"><h3>{ LABELS.DOWN }</h3></div>
         </div>
         <div className="list-holder">
           <div>{ upLinks }</div>

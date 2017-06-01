@@ -10,7 +10,7 @@ class Main extends React.Component {
   }
 
   render() {
-    let view;    
+    let view;
     if ( this.props.match.params.slug && this.props.stories.length > 0 ) {
       // render story
       const story = this.props.stories.find( s => (
