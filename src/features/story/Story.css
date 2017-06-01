@@ -3,20 +3,24 @@
   max-width: 600px;
   margin: 0 auto;
 
-  & p {
+  & h1 {
+    font-size: 30px;
+    margin: 160px 0 60px;
+    text-align: center;
+  }
+
+  & article {
     text-align: justify;
     margin-bottom: 60px;
+
+    & p {
+      margin-bottom: 10px;
+    }
   }
 
   & footer {
     display: flex;
     justify-content: space-between;
     margin-bottom: 300px;
-
-    & a {
-      text-decoration: underline;
-      cursor: pointer;
-      color: black;
-    }
   }
 }

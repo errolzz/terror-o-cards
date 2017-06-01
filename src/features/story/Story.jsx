@@ -10,10 +10,10 @@ const Story = ( { story } ) => {
   return (
     <div className="story">
       <div>
-        <h1>{ story.title }</h1>
-        <p>{ story.body }</p>
+        <h1>{ `${ story.title } - ${ toTitleCase( story.suit ) } - ${ toTitleCase( story.direction ) }` }</h1>
+        <article dangerouslySetInnerHTML={ { __html: story.body } } />
         <footer>
-          <div className="back"><Link to="/">Index</Link></div>
+          <div className="back"><Link to="/">&lsaquo; Index</Link></div>
           <div className="date">{ date }</div>
         </footer>
       </div>
@@ -21,12 +21,19 @@ const Story = ( { story } ) => {
   );
 };
 
+function toTitleCase( str ) {
+    return str.replace( /\w\S*/g, txt => (
+      txt.charAt( 0 ).toUpperCase() + txt.substr( 1 ).toLowerCase()
+    ) );
+}
+
 Story.propTypes = {
   story: PropTypes.shape( {
     title: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
-    tags: PropTypes.array.isRequired,
+    direction: PropTypes.string.isRequired,
+    suit: PropTypes.string.isRequired,
   } ).isRequired,
 };
 

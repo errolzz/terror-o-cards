@@ -8,12 +8,15 @@ html, body {
   line-height: 28px;
 }
 
-h1 {
-  font-size: 30px;
-  margin: 60px;
-  text-align: center;
-}
+a {
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  color: black;
+  display: inline-block;
+  transition: transform 0.2s;
 
-p {
-  text-indent: 30px;
+  &:hover {
+    transform: scale(1.04,1);
+  }
 }

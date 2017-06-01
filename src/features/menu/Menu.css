@@ -1,3 +1,39 @@
 .menu {
+  & .logo {
+    width: 160px;
+    margin: 30px auto 107px;
 
+    & img {
+      width: 160px;
+    }
+  }
+
+  & .list-header {
+    position: relative;
+    display: flex;
+    width: 94%;
+    max-width: 600px;
+    margin: 0 auto 10px;
+    justify-content: space-between;
+
+    & h2 {
+      font-size: 30px;
+      text-align: center;
+      position: absolute;
+      width: 100%;
+      text-align: center;
+    }
+
+    & h3 {
+      color: #666;
+    }
+  }
+
+  & .list-holder {
+    display: flex;
+    width: 94%;
+    max-width: 600px;
+    margin: 0 auto 60px;
+    justify-content: space-between;
+  }
 }

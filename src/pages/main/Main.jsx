@@ -21,8 +21,9 @@ class Main extends React.Component {
       // render menu
       view = <Menu stories={ this.props.stories } />;
     }
+
     return (
-      <div className="page">
+      <div className="page-home">
         { view }
       </div>
     );

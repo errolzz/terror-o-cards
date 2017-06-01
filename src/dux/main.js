@@ -1,4 +1,4 @@
-import { HTTP } from "constants/constants";
+import { API } from "constants/constants";
 
 // actions
 const STORIES_LOAD_REQUEST = "features/main/STORIES_LOAD_REQUEST";
@@ -66,7 +66,7 @@ export function loadAllStories() {
     // dispatch to start a spinner or to disable mouse actions
     dispatch( startStoriesLoad() );
     // load the data
-    return fetch( HTTP.STORY_API )
+    return fetch( API.STORIES )
       .then( response => response.json() )
       .then( json =>
         // dispatched loaded data
