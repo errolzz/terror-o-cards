@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { push } from "react-router-redux";
 import { loadAllStories } from "dux/main";
 import Main from "./Main";
 
@@ -12,6 +13,9 @@ const mapStateToProps = state => ( {
 const mapDispatchToProps = dispatch => ( {
   loadStories: () => {
     dispatch( loadAllStories() );
+  },
+  crapRoute: () => {
+    dispatch( push( "/" ) );
   },
 } );
 
