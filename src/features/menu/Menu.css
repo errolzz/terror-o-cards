@@ -11,9 +11,10 @@
   & .list-header {
     position: relative;
     width: calc(100% - 30px);
+    height: 38px;
     max-width: 600px;
-    margin: 0 auto 10px;
-    overflow: auto;
+    margin: 0 auto;
+    overflow: hidden;
 
     & .up {
       float: left;

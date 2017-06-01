@@ -7,6 +7,6 @@ module.exports = {
     port: 8080,
     host: "0.0.0.0",
     historyApiFallback: true,
-    public: "10.0.0.50",
+    //public: "10.0.0.50",
   },
 };

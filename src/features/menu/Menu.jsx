@@ -15,9 +15,11 @@ const Menu = ( { stories } ) => {
 
   return (
     <div className="menu">
-      <div className="logo">
-        <img src={ logo } alt="terror-o-cards" />
-      </div>
+      { stories.length > 0 &&
+        <div className="logo">
+          <img src={ logo } alt="terror-o-cards" />
+        </div>
+      }
       { makeCardList( wands, LABELS.WANDS ) }
       { makeCardList( coins, LABELS.COINS ) }
       { makeCardList( swords, LABELS.SWORDS ) }
