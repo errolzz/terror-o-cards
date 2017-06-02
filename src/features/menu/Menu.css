@@ -8,6 +8,10 @@
     }
   }
 
+  & a {
+    font-size: 20px;
+  }
+
   & .list-header {
     position: relative;
     width: calc(100% - 30px);
