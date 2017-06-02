@@ -36,6 +36,11 @@ function filterCards( stories, suit ) {
 }
 
 function makeLinks( cards ) {
+  // sort cards by their index number
+  cards.sort( ( a, b ) => (
+    a.fields.index - b.fields.index
+  ) );
+
   return cards.map( ( card ) => {
     const d = new Date( card.fields.date );
     const date = `${ d.getMonth() + 1 }/${ d.getDate() }/${ d.getFullYear() }`;

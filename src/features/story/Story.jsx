@@ -34,6 +34,7 @@ Story.propTypes = {
     date: PropTypes.string.isRequired,
     direction: PropTypes.string.isRequired,
     suit: PropTypes.string.isRequired,
+    index: PropTypes.number.isRequired,
   } ).isRequired,
 };
 
